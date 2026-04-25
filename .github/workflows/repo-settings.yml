@@ -14,5 +14,5 @@ permissions:
 
 jobs:
   settings:
-    uses: Depthmark/reusable-workflows/.github/workflows/repo-settings-default.yml@feature/initial-release
+    uses: Depthmark/repository-settings/.github/workflows/repo-settings-default.yml@feature/initial-release
     secrets: inherit
