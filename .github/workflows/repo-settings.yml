@@ -1,0 +1,18 @@
+name: repo-settings
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/settings/**']
+  pull_request:
+    paths: ['.github/settings/**']
+
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+
+jobs:
+  settings:
+    uses: Depthmark/reusable-workflows/.github/workflows/repo-settings-default.yml@feature/initial-release
+    secrets: inherit
