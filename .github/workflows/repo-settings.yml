@@ -14,4 +14,7 @@ jobs:
       contents: read
       checks: write
       id-token: write
+    with:
+      api-url: https://repository-settings.adelisle.com
+      sts-url: https://github-sts-dev.adelisle.com
     secrets: inherit
