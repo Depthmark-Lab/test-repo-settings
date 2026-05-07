@@ -1,0 +1,8 @@
+_version: 1
+autolinks:
+  - key_prefix: "JIRA-"
+    url_template: "https://adelisle.atlassian.net/browse/JIRA-<num>"
+    is_alphanumeric: false
+  - key_prefix: "INC-"
+    url_template: "https://adelisle.pagerduty.com/incidents/INC-<num>"
+    is_alphanumeric: true

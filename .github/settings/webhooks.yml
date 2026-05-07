@@ -1,0 +1,11 @@
+_version: 1
+webhooks:
+  - url: https://hooks.adelisle.com/github/test-repo-settings
+    content_type: json
+    secret_ref: WEBHOOK_SECRET
+    insecure_ssl: false
+    active: true
+    events:
+      - push
+      - pull_request
+      - issues

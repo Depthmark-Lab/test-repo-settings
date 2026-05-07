@@ -1,0 +1,8 @@
+_version: 1
+pages:
+  build_type: workflow
+  source:
+    branch: gh-pages
+    path: /
+  cname: docs.adelisle.com
+  https_enforced: true
