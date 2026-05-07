@@ -5,7 +5,7 @@ repository:
   visibility: private
 
   has_issues: true
-  has_projects: false
+  has_projects: true
   has_wiki: false
   has_discussions: false
   is_template: false
