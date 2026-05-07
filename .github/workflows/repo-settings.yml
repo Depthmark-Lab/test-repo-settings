@@ -9,7 +9,7 @@ on:
 
 jobs:
   settings:
-    uses: Depthmark/repository-settings/.github/workflows/repo-settings-default.yml@feature/initial-release
+    uses: Depthmark/repositories-settings/.github/workflows/repo-settings-default.yml@feature/initial-release
     permissions:
       contents: read
       checks: write
