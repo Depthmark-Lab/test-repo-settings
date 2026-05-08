@@ -3,9 +3,9 @@ repository:
   description: "Test repo for validating repo-settings configuration"
   private: true
   visibility: private
-  has_issues: true
-  has_projects: true
-  has_wiki: true
+  has_issues: false
+  has_projects: false
+  has_wiki: false
   has_discussions: false
   is_template: false
   allow_squash_merge: true
