@@ -15,7 +15,6 @@ jobs:
       checks: write
       id-token: write
       pull-requests: write
-    defaults:
     with:
       api-url: https://repository-settings.adelisle.com
       sts-url: https://github-sts-dev.adelisle.com
