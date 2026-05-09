@@ -1,0 +1,8 @@
+_version: 1
+custom_properties:
+  team: platform
+  tier: experimental
+  compliance_required: false
+  environments:
+    - production
+    - staging

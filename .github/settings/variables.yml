@@ -1,0 +1,8 @@
+_version: 1
+variables:
+  - name: REPO_SETTINGS_API_URL
+    value: https://repository-settings.adelisle.com
+  - name: STS_URL
+    value: https://github-sts-dev.adelisle.com
+  - name: DEFAULT_REGION
+    value: us-east-1

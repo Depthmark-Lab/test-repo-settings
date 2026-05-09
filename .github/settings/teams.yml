@@ -1,0 +1,10 @@
+_version: 1
+teams:
+  - slug: platform
+    permission: admin
+  - slug: engineering
+    permission: push
+  - slug: contributors
+    permission: triage
+  - slug: readers
+    permission: pull

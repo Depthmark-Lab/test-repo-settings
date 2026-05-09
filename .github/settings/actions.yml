@@ -1,0 +1,12 @@
+_version: 1
+actions:
+  enabled: true
+  allowed_actions: selected
+  github_owned_allowed: true
+  verified_allowed: true
+  patterns_allowed:
+    - "actions/*"
+    - "Depthmark/*"
+    - "Depthmark-Lab/*"
+  default_workflow_permissions: read
+  can_approve_pull_request_reviews: false
