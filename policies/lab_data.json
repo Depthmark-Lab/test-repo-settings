@@ -1,0 +1,76 @@
+{
+  "sts": {
+    "enterprise_config": {
+      "v1": {
+        "contract_version": "v1",
+        "approved_source_owner_ids": {
+          "71595780": true
+        },
+        "approved_target_owner_ids": {
+          "71595780": true
+        },
+        "owner_names": {
+          "71595780": "Depthmark-Lab"
+        },
+        "cross_org_exceptions": [],
+        "org_wide_grants": [],
+        "apps": {
+          "test-settings-read-app": {
+            "permission_ceiling": {
+              "metadata": "read",
+              "contents": "read",
+              "administration": "read",
+              "actions": "read",
+              "secrets": "read",
+              "repository_hooks": "read",
+              "pages": "read",
+              "organization_administration": "read",
+              "organization_custom_properties": "read"
+            },
+            "targets": {
+              "71595780": {
+                "owner_name": "Depthmark-Lab",
+                "repositories": {
+                  "1218555600": {
+                    "repository_name": "test-repo-settings",
+                    "permission_ceiling": {
+                      "metadata": "read",
+                      "contents": "read",
+                      "administration": "read",
+                      "actions": "read",
+                      "secrets": "read",
+                      "repository_hooks": "read",
+                      "pages": "read",
+                      "organization_administration": "read",
+                      "organization_custom_properties": "read"
+                    },
+                    "identities": {
+                      "repo-settings-verify": {
+                        "permission_ceiling": {
+                          "metadata": "read",
+                          "contents": "read",
+                          "administration": "read",
+                          "actions": "read",
+                          "secrets": "read",
+                          "repository_hooks": "read",
+                          "pages": "read"
+                        }
+                      },
+                      "repo-settings-preflight": {
+                        "permission_ceiling": {
+                          "metadata": "read",
+                          "organization_administration": "read",
+                          "organization_custom_properties": "read"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+# Trust policy for repo-settings-preflight on the github-sts-dev broker's
+# test-settings-read-app pool: the harness preflight's organization-level reads,
+# the organization Actions policy and custom property definitions. They apply
+# to the whole organization; the broker's repository narrowing does not limit
+# them.
+#
+# Shares its subject and workflow with repo-settings-verify.sts.yaml, which
+# explains why both live in this repository. policies/lab_data.json holds the
+# matching bundle ceiling; keep the two permission lists equal.
+issuer: https://token.actions.githubusercontent.com
+subject: "repo:Depthmark-Lab@71595780/test-repo-settings@1218555600:ref:refs/heads/main"
+claim_pattern:
+  job_workflow_ref: 'Depthmark-Lab/test-repo-settings/\.github/workflows/e2e-live\.yml@refs/heads/main'
+audience: github-sts
+github:
+  sources:
+    - owner_id: "71595780"
+      repository_id: "1218555600"
+  target:
+    owner_id: "71595780"
+    repository_id: "1218555600"
+permissions:
+  metadata: read
+  organization_administration: read
+  organization_custom_properties: read
