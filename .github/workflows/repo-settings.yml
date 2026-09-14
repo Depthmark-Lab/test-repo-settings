@@ -5,17 +5,16 @@ on:
     branches: [main]
     paths: ['.github/settings/**']
   pull_request:
-    paths: ['.github/settings/**']
+    paths: ['.github/settings/**', '.github/workflows/repo-settings.yml']
+
+permissions: {}
 
 jobs:
   settings:
-    uses: Depthmark/repositories-settings/.github/workflows/repo-settings-default.yml@feature/initial-release
+    # Lab exception: tracks the unreleased feature branch. Pin to
+    # @<full-commit-sha> # repo-settings-workflows-vX.Y.Z once released.
+    uses: Depthmark/repositories-settings/.github/workflows/repo-settings.yml@feature/initial-release
     permissions:
       contents: read
-      checks: write
-      id-token: write
       pull-requests: write
-    with:
-      api-url: https://repository-settings.adelisle.com
-      sts-url: https://github-sts-dev.adelisle.com
-    secrets: inherit
+      id-token: write
