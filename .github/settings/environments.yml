@@ -10,9 +10,23 @@ environments:
     deployment_branch_policy:
       protected_branches: false
       custom_branch_policies: true
+      branch_policies:
+        - name: main
+        - name: "release/*"
+    variables:
+      - name: DEPLOY_TARGET
+        value: prod
+    secrets:
+      - name: DEPLOY_TOKEN
   - name: staging
     wait_timer: 0
     prevent_self_review: false
     deployment_branch_policy:
       protected_branches: false
       custom_branch_policies: true
+      branch_policies:
+        - name: main
+        - name: "feature/*"
+    variables:
+      - name: DEPLOY_TARGET
+        value: staging

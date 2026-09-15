@@ -2,5 +2,5 @@
 _version: 1
 deploy_keys:
   - title: ci-readonly
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIHa5LWoDJfuw8S9cQ20DeS8qISAlwsBiUsFT+l5xHJ ci-readonly@test-repo-settings"
+    key_ref: CI_DEPLOY_KEY
     read_only: true

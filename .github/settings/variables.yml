@@ -5,3 +5,5 @@ variables:
     value: https://repository-settings.adelisle.com
   - name: STS_URL
     value: https://github-sts-dev.adelisle.com
+  - name: DEFAULT_REGION
+    value: us-east-1
