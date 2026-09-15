@@ -1,5 +1,0 @@
-_version: 1
-deploy_keys:
-  - title: ci-readonly
-    key_ref: CI_DEPLOY_KEY
-    read_only: true

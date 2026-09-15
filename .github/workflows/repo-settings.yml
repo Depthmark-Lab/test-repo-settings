@@ -11,9 +11,9 @@ permissions: {}
 
 jobs:
   settings:
-    # Lab exception: tracks the unreleased feature branch. Pin to
-    # @<full-commit-sha> # repo-settings-workflows-vX.Y.Z once released.
-    uses: Depthmark/repositories-settings/.github/workflows/repo-settings.yml@feature/initial-release
+    # Lab exception: pins the unreleased feature branch commit. Replace with a
+    # released repo-settings-workflows SHA and tag once available.
+    uses: Depthmark/repositories-settings/.github/workflows/repo-settings.yml@16d76e34f9760b04ebf84f8a2f6e057c13778480 # feature/initial-release
     permissions:
       contents: read
       pull-requests: write
