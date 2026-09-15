@@ -1,7 +1,0 @@
-_version: 1
-security:
-  vulnerability_alerts: false
-  automated_security_fixes: false
-  secret_scanning: false
-  secret_scanning_push_protection: false
-  private_vulnerability_reporting: false
