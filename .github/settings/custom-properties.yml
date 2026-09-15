@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://repository-settings.adelisle.com/api/schema/custom-properties.json
 _version: 1
 custom_properties:
   team: platform

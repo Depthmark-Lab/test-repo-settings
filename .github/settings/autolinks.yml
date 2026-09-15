@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://repository-settings.adelisle.com/api/schema/autolinks.json
 _version: 1
 autolinks:
   - key_prefix: "JIRA-"

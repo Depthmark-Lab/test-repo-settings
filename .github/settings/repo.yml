@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://repository-settings.adelisle.com/api/schema/repo.json
 _version: 1
 repository:
   description: "Test repo for validating repo-settings configuration"

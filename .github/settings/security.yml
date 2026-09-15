@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://repository-settings.adelisle.com/api/schema/security.json
 _version: 1
 security:
   vulnerability_alerts: true

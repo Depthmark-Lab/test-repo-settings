@@ -1,8 +1,8 @@
+# yaml-language-server: $schema=https://repository-settings.adelisle.com/api/schema/webhooks.json
 _version: 1
 webhooks:
   - url: https://hooks.adelisle.com/github/test-repo-settings
     content_type: json
-    secret_ref: WEBHOOK_SECRET
     insecure_ssl: false
     active: true
     events:

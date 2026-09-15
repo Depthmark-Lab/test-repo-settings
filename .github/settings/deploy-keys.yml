@@ -1,5 +1,6 @@
+# yaml-language-server: $schema=https://repository-settings.adelisle.com/api/schema/deploy-keys.json
 _version: 1
 deploy_keys:
   - title: ci-readonly
-    key_ref: CI_DEPLOY_KEY
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIHa5LWoDJfuw8S9cQ20DeS8qISAlwsBiUsFT+l5xHJ ci-readonly@test-repo-settings"
     read_only: true
