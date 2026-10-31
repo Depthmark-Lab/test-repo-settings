@@ -62,7 +62,15 @@
                           "organization_administration": "read",
                           "organization_custom_properties": "read"
                         }
-                      },
+                      }
+                    }
+                  },
+                  "1223040727": {
+                    "repository_name": "test-github-sts",
+                    "permission_ceiling": {
+                      "metadata": "read"
+                    },
+                    "identities": {
                       "dual-akv-check": {
                         "permission_ceiling": {
                           "metadata": "read"

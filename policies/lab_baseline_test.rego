@@ -180,27 +180,34 @@ test_deny_preflight_repository_read if {
 	decision.rule_id == "sts.permissions.exceeds_ceiling"
 }
 
-# test-github-sts's dual AKV check: another repository as source, metadata only.
-dual_akv_input(permissions) := object.union(settings_input("test-settings-read-app", "dual-akv-check", permissions), {
+# test-github-sts's dual AKV check: that repository as source and target, whose
+# trust policy lives there, and metadata only.
+dual_akv_input(identity, permissions) := object.union(settings_input("test-settings-read-app", identity, permissions), {
+	"request": {"scope": "Depthmark-Lab/test-github-sts"},
 	"source_identity": {"repository": "Depthmark-Lab/test-github-sts", "repository_id": "1223040727"},
-	"yaml_policy": {"github": {"sources": [{"owner_id": "71595780", "repository_id": "1223040727"}]}},
+	"target_identity": {"scope": "Depthmark-Lab/test-github-sts", "repository": "Depthmark-Lab/test-github-sts", "repository_id": "1223040727"},
+	"yaml_policy": {"github": {
+		"sources": [{"owner_id": "71595780", "repository_id": "1223040727"}],
+		"target": {"owner_id": "71595780", "repository_id": "1223040727"},
+	}},
+	"requested": {"repository_ids": ["1223040727"]},
 })
 
 test_allow_dual_akv_check_metadata if {
-	decision := baseline.decision with input as dual_akv_input({"metadata": "read"})
+	decision := baseline.decision with input as dual_akv_input("dual-akv-check", {"metadata": "read"})
 	decision.allow
 	decision.rule_id == "sts.enterprise.allow"
 }
 
 test_deny_dual_akv_check_above_metadata if {
-	decision := baseline.decision with input as dual_akv_input({"secrets": "read"})
+	decision := baseline.decision with input as dual_akv_input("dual-akv-check", {"contents": "read"})
 	not decision.allow
 	decision.rule_id == "sts.permissions.exceeds_ceiling"
 }
 
 # A source the trust policy does not list is refused, whatever the bundle allows.
 test_deny_dual_akv_check_unlisted_source if {
-	unlisted := object.union(dual_akv_input({"metadata": "read"}), {
+	unlisted := object.union(dual_akv_input("dual-akv-check", {"metadata": "read"}), {
 		"source_identity": {"repository": "Depthmark-Lab/other", "repository_id": "1"},
 	})
 	decision := baseline.decision with input as unlisted
@@ -208,14 +215,28 @@ test_deny_dual_akv_check_unlisted_source if {
 	decision.rule_id == "sts.relationship.source_target"
 }
 
+# The harness identities stay on test-repo-settings.
+test_deny_verify_on_test_github_sts if {
+	decision := baseline.decision with input as dual_akv_input("repo-settings-verify", {"metadata": "read"})
+	not decision.allow
+	decision.rule_id == "sts.context.unknown"
+}
+
+# dual-akv-check stays on test-github-sts.
+test_deny_dual_akv_check_on_test_repo_settings if {
+	decision := baseline.decision with input as settings_input("test-settings-read-app", "dual-akv-check", {"metadata": "read"})
+	not decision.allow
+	decision.rule_id == "sts.context.unknown"
+}
+
 # The read pool reaches only the targets lab_data.json names.
 test_deny_read_pool_unlisted_target if {
-	other := "Depthmark-Lab/test-github-sts"
+	other := "Depthmark-Lab/other"
 	unlisted := object.union(settings_input("test-settings-read-app", "repo-settings-verify", {"metadata": "read"}), {
 		"request": {"scope": other},
-		"target_identity": {"scope": other, "repository": other, "repository_id": "1223040727"},
-		"yaml_policy": {"github": {"target": {"owner_id": "71595780", "repository_id": "1223040727"}}},
-		"requested": {"repository_ids": ["1223040727"]},
+		"target_identity": {"scope": other, "repository": other, "repository_id": "1"},
+		"yaml_policy": {"github": {"target": {"owner_id": "71595780", "repository_id": "1"}}},
+		"requested": {"repository_ids": ["1"]},
 	})
 	decision := baseline.decision with input as unlisted
 	not decision.allow
