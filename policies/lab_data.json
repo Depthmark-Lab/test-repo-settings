@@ -62,6 +62,11 @@
                           "organization_administration": "read",
                           "organization_custom_properties": "read"
                         }
+                      },
+                      "dual-akv-check": {
+                        "permission_ceiling": {
+                          "metadata": "read"
+                        }
                       }
                     }
                   }
